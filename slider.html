@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <script src="https://cdn.tailwindcss.com/"></script>
+</head>
+<body class="bg-purple-600 text-red-600">
+  <div class="calculator [&>button]:border grid grid-cols-4 grid-rows-6 m-auto mt-8 w-[90%] h-[250px]">
+    <input type="text" name="name" class="border border-2 col-span-full" id="input">
+    <button value="AC">AC</button>
+    <button value="X">X</button>
+    <button value="%">%</button>
+    <button value="÷">÷</button>
+    <button value="7">7</button>
+    <button value="8">8</button>
+    <button value="9">9</button>
+    <button value="*">x</button>
+    <button value="4">4</button>
+    <button value="5">5</button>
+    <button value="6">6</button>
+    <button value="+">+</button>
+    <button value="1">1</button>
+    <button value="2">2</button>
+    <button value="3">3</button>
+    <button value="00">00</button>
+    <button value="0">0</button>
+    <button value=".">.</button>
+    <button value="=" class="col-span-2">=</button>
+  </div>
+</body>
+<script>
+let input=document.querySelector('input');
+let btns=document.querySelectorAll('button');
+btns.forEach((btn)=>{
+  btn.addEventListener('click',()=>{
+    if(btn.value==='AC'){
+  input.value='';
+    
+  }else if(btn.value==='X'){
+    input.value=input.value.slice(0,-1)
+}else if(btn.value==='='){
+  input.value = eval(input.value);
+}else{
+  input.value +=btn.value
+}
+})
+})
+
+</script>
+
+</html>
